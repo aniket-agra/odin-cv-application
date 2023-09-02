@@ -1,14 +1,85 @@
 import { useState } from "react";
 
-function Tasks({workInfo, displayState, handleChange}) {
+function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 0) {
-
+        return (
+            <>
+                <h3>Responsibilities</h3>
+                <ul>
+                {
+                    workInfo.responsibilities.map(
+                        function (task, index) {
+                            return (
+                                <li key = {task["id"]}>
+                                    <input 
+                                        type = "text"
+                                        value = {task["content"]} 
+                                        onChange = {(e) => {
+                                            let newObj = {...workInfo};
+                                            newObj["responsibilities"][index]["content"] = e.target.value;  
+                                            return handleChange(newObj)} 
+                                        }/>
+                                </li>
+                            );
+                        }
+                    )
+                }
+                </ul>
+            </>
+        );
     }
     if (displayState === 1) {
-
+        return (
+            <>
+                <h3>Responsibilities</h3>
+                <ul>
+                {
+                    workInfo.responsibilities.map(
+                        function (task) {
+                            return <li key = {task["id"]}>{task["content"]}</li>;
+                        }
+                    )
+                }
+                </ul>
+                <button onClick = {e => handleClick2(e, 0)}>Edit</button>
+                <button onClick = {e => {
+                    let newObj = {...workInfo};
+                    newObj["responsibilities"].push({id : crypto.randomUUID(), content : ""});
+                    return handleClick2(e, 2);
+                }}>
+                Add responsibility
+                </button>
+            </>
+        );
     }
     if (displayState === 2) {
-
+        return (
+            <>
+                <h3>Responsibilities</h3>
+                <ul>
+                    {
+                        workInfo.responsibilities.map(
+                            function (task, index) {
+                                if (index < workInfo.responsibilities.length - 1)
+                                    return <li key = {task["id"]}>{task["content"]}</li>;
+                            }
+                        )
+                    }
+                    <li key = {workInfo.responsibilities[workInfo.responsibilities.length - 1]["id"]}>
+                        <label htmlFor="newTask">Add details: </label>
+                        <input 
+                            type = "text"
+                            id = "newTask"
+                            value = {workInfo.responsibilities[workInfo.responsibilities.length - 1]["content"]}
+                            onChange = {e => {
+                                let newObj = {...workInfo};
+                                newObj["responsibilities"][workInfo.responsibilities.length - 1]["content"] = e.target.value;
+                                return handleChange(newObj);
+                            }} />
+                    </li>
+                </ul>
+            </>
+        );
     }
 }
 
@@ -26,11 +97,6 @@ function WorkExItem() {
     function handleChange(newObj) {
         setWorkInfo(newObj);
     }
-
-    // function handleClick(e) {
-    //     e.preventDefault();
-    //     setFormDisplayed(!formDisplayed);
-    // }
 
     function handleClick2(e, targetState) {
         e.preventDefault();
@@ -84,27 +150,11 @@ function WorkExItem() {
                             "end" : e.target.value
                         })
                     } />
-                <h3>Responsibilities</h3>
-                <ul>
-                {
-                    workInfo.responsibilities.map(
-                        function (task, index) {
-                            return (
-                                <li key = {task["id"]}>
-                                    <input 
-                                        type = "text"
-                                        value = {task["content"]} 
-                                        onChange = {(e) => {
-                                            let newObj = {...workInfo};
-                                            newObj["responsibilities"][index]["content"] = e.target.value;  
-                                            return handleChange(newObj)} 
-                                        }/>
-                                </li>
-                            );
-                        }
-                    )
-                }
-                </ul>
+                <Tasks
+                    workInfo={workInfo}
+                    displayState={displayState}
+                    handleChange={handleChange}
+                    handleClick2={handleClick2} />
                 <button onClick = {e => handleClick2(e, 1)}>Submit</button>
             </section>
         );
@@ -116,24 +166,11 @@ function WorkExItem() {
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>
                 <p>End Date: {workInfo.end}</p>
-                <h3>Responsibilities</h3>
-                <ul>
-                {
-                    workInfo.responsibilities.map(
-                        function (task) {
-                            return <li key = {task["id"]}>{task["content"]}</li>;
-                        }
-                    )
-                }
-                </ul>
-                <button onClick = {e => handleClick2(e, 0)}>Edit</button>
-                <button onClick = {e => {
-                    let newObj = {...workInfo};
-                    newObj["responsibilities"].push({id : crypto.randomUUID(), content : ""});
-                    return handleClick2(e, 2);
-                }}>
-                Add responsibility
-                </button>
+                <Tasks
+                    workInfo={workInfo}
+                    displayState={displayState}
+                    handleChange={handleChange}
+                    handleClick2={handleClick2} />
             </section>
         );
     }
@@ -144,29 +181,12 @@ function WorkExItem() {
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>
                 <p>End Date: {workInfo.end}</p>
-                <h3>Responsibilities</h3>
-                <ul>
-                    {
-                        workInfo.responsibilities.map(
-                            function (task, index) {
-                                if (index < workInfo.responsibilities.length - 1)
-                                    return <li key = {task["id"]}>{task["content"]}</li>;
-                            }
-                        )
-                    }
-                    <li key = {workInfo.responsibilities[workInfo.responsibilities.length - 1]["id"]}>
-                        <label htmlFor="newTask">Add details: </label>
-                        <input 
-                            type = "text"
-                            id = "newTask"
-                            value = {workInfo.responsibilities[workInfo.responsibilities.length - 1]["content"]}
-                            onChange = {e => {
-                                let newObj = {...workInfo};
-                                newObj["responsibilities"][workInfo.responsibilities.length - 1]["content"] = e.target.value;
-                                return handleChange(newObj);
-                            }} />
-                    </li>
-                </ul>
+                <Tasks
+                    workInfo={workInfo}
+                    displayState={displayState}
+                    handleChange={handleChange}
+                    handleClick2={handleClick2} />
+
                 <button onClick = {e => {
                     return handleClick2(e, 1);
                 }}>
