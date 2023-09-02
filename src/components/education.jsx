@@ -79,6 +79,7 @@ function EducationSection() {
 
     return (
         <section className = "educationSection">
+            <h2>Education</h2>
             {
                 educationItems
             }

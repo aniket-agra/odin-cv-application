@@ -1,12 +1,30 @@
 import { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
+function Tasks({taskList}) { 
+    return (
+        <section className = "responsibilities">
+            <h3>Responsibilities</h3>
+            <ul className = "list">
+                {
+                    // eslint-disable-next-line react/prop-types
+                    taskList.map((responsibility, index) => {
+                        return <li key = {index}>{responsibility}</li>;
+                    })
+                }
+            </ul>
+        </section>
+    );
+}
+
 function WorkExItem() {
+    const initialTasks = ["Did X"];
     const initialObj = {
         "company" : "company",
         "position" : "position", 
         "start" : "start date",
         "end" : "end date",
-        "responsibilities" : "responsibilities"
+        "responsibilities" : initialTasks
     };
     const [workInfo, setWorkInfo] = useState(initialObj);
     const [formDisplayed, setFormDisplayed] = useState(true);
@@ -67,17 +85,9 @@ function WorkExItem() {
                             "end" : e.target.value
                         })
                     } />
-                <label htmlFor = "responsibilities">Responsibilities: </label>
-                <input
-                    placeholder = "Responsibilities"
-                    type = "textarea"
-                    id = "responsibilities"
-                    value = {workInfo.responsibilities}
-                    onChange = {(e) => handleChange({
-                            ...workInfo,
-                            "responsibilities" : e.target.value
-                        })
-                    } />
+                <Tasks  
+                    taskList = {workInfo["responsibilities"]}  
+                />
                 <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
             </section>
         );
@@ -89,7 +99,9 @@ function WorkExItem() {
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>
                 <p>End Date: {workInfo.end}</p>
-                <p>Responsibilities: {workInfo.responsibilities}</p>
+                <Tasks 
+                    taskList = {workInfo["responsibilities"]}
+                />
                 <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
             </section>
         );
@@ -105,6 +117,7 @@ function WorkExSection() {
 
     return (
         <section className = "experienceSection">
+            <h2>Work Experience</h2>
             {
                 workItems
             }
