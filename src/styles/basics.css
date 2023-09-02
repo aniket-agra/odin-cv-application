@@ -1,3 +1,14 @@
-input:invalid, input:focus:invalid {
-    border: 2px solid red;
+.basicsForm {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.basicsForm label {
+    justify-self: end;
+}
+
+.basicsForm button {
+    grid-column: 2;
+    justify-self: center;
 }

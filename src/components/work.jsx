@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/experience.css"
 
 function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 0) {

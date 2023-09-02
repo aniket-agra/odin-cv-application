@@ -1,0 +1,15 @@
+.educationSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.educationSection > h2 {
+    grid-column: 2;
+    justify-self: center;
+}
+
+.educationSection > button {
+    grid-row: 2;
+    grid-column: 2;
+    justify-self: center;
+}
