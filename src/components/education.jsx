@@ -82,7 +82,7 @@ function EducationSection() {
             {
                 educationItems
             }
-        <button onClick = {handleAdd}>Add</button>
+            <button onClick = {handleAdd}>Add</button>
         </section>
         
     );
