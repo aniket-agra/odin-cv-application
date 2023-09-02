@@ -1,5 +1,17 @@
 import { useState } from "react";
 
+function Tasks({workInfo, displayState, handleChange}) {
+    if (displayState === 0) {
+
+    }
+    if (displayState === 1) {
+
+    }
+    if (displayState === 2) {
+
+    }
+}
+
 function WorkExItem() {
     const initialObj = {
         "company" : "company",
