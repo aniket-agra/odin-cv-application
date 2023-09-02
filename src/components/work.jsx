@@ -6,7 +6,7 @@ function WorkExItem() {
         "position" : "position", 
         "start" : "start date",
         "end" : "end date",
-        "responsibilities" : "tasks"
+        "responsibilities" : ['Did X']
     };
     const [workInfo, setWorkInfo] = useState(initialObj);
     const [displayState, setDisplayState] = useState(0);
@@ -72,17 +72,27 @@ function WorkExItem() {
                             "end" : e.target.value
                         })
                     } />
-                <label htmlFor = "responsibilities">Responsibilities: </label>
-                <input
-                    placeholder = "Responsibilities"
-                    type = "textarea"
-                    id = "responsibilities"
-                    value = {workInfo.responsibilities}
-                    onChange = {(e) => handleChange({
-                            ...workInfo,
-                            "responsibilities" : e.target.value
-                        })
-                    } />
+                <h3>Responsibilities</h3>
+                <ul>
+                {
+                    workInfo.responsibilities.map(
+                        function (task, index) {
+                            return (
+                                <li key = {index}>
+                                    <input 
+                                        type = "text"
+                                        value = {task} 
+                                        onChange = {(e) => {
+                                            let newObj = {...workInfo};
+                                            newObj["responsibilities"][index] = e.target.value;  
+                                            return handleChange(newObj)} 
+                                        }/>
+                                </li>
+                            );
+                        }
+                    )
+                }
+                </ul>
                 <button onClick = {e => handleClick2(e, 1)}>Submit</button>
             </section>
         );
@@ -95,7 +105,16 @@ function WorkExItem() {
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>
                 <p>End Date: {workInfo.end}</p>
-                <p>Responsibilities: {workInfo.responsibilities}</p>
+                <h3>Responsibilities</h3>
+                <ul>
+                {
+                    workInfo.responsibilities.map(
+                        function (task, index) {
+                            return <li key = {index}>{task}</li>;
+                        }
+                    )
+                }
+                </ul>
                 <button onClick = {e => handleClick2(e, 0)}>Edit</button>
             </section>
         );
