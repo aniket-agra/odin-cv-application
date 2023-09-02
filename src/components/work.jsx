@@ -9,18 +9,23 @@ function WorkExItem() {
         "responsibilities" : "tasks"
     };
     const [workInfo, setWorkInfo] = useState(initialObj);
-    const [formDisplayed, setFormDisplayed] = useState(true);
+    const [displayState, setDisplayState] = useState(0);
 
     function handleChange(newObj) {
         setWorkInfo(newObj);
     }
 
-    function handleClick(e) {
+    // function handleClick(e) {
+    //     e.preventDefault();
+    //     setFormDisplayed(!formDisplayed);
+    // }
+
+    function handleClick2(e, targetState) {
         e.preventDefault();
-        setFormDisplayed(!formDisplayed);
+        setDisplayState(targetState);
     }
 
-    if (formDisplayed) {
+    if (displayState === 0) {
         return (
             <section className = "workItem">
                 <label htmlFor = "company">Company: </label>
@@ -78,11 +83,12 @@ function WorkExItem() {
                             "responsibilities" : e.target.value
                         })
                     } />
-                <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
+                <button onClick = {e => handleClick2(e, 1)}>Submit</button>
             </section>
         );
     }
-    else {
+    else 
+    if (displayState === 1) {
         return (
             <section className = "workSection">
                 <p>Company: {workInfo.company}</p>
@@ -90,7 +96,7 @@ function WorkExItem() {
                 <p>Start Date: {workInfo.start}</p>
                 <p>End Date: {workInfo.end}</p>
                 <p>Responsibilities: {workInfo.responsibilities}</p>
-                <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
+                <button onClick = {e => handleClick2(e, 0)}>Edit</button>
             </section>
         );
     }
