@@ -96,8 +96,7 @@ function WorkExItem() {
                 <button onClick = {e => handleClick2(e, 1)}>Submit</button>
             </section>
         );
-    }
-    else 
+    } 
     if (displayState === 1) {
         return (
             <section className = "workSection">
@@ -126,7 +125,6 @@ function WorkExItem() {
             </section>
         );
     }
-    else
     if (displayState === 2) {
         return (
             <section className = "workSection">
