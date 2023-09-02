@@ -6,7 +6,7 @@ function WorkExItem() {
         "position" : "position", 
         "start" : "start date",
         "end" : "end date",
-        "responsibilities" : ['Did X']
+        "responsibilities" : [{id: crypto.randomUUID(), content : 'Did X'}]
     };
     const [workInfo, setWorkInfo] = useState(initialObj);
     const [displayState, setDisplayState] = useState(0);
@@ -78,13 +78,13 @@ function WorkExItem() {
                     workInfo.responsibilities.map(
                         function (task, index) {
                             return (
-                                <li key = {index}>
+                                <li key = {task["id"]}>
                                     <input 
                                         type = "text"
-                                        value = {task} 
+                                        value = {task["content"]} 
                                         onChange = {(e) => {
                                             let newObj = {...workInfo};
-                                            newObj["responsibilities"][index] = e.target.value;  
+                                            newObj["responsibilities"][index]["content"] = e.target.value;  
                                             return handleChange(newObj)} 
                                         }/>
                                 </li>
@@ -109,8 +109,8 @@ function WorkExItem() {
                 <ul>
                 {
                     workInfo.responsibilities.map(
-                        function (task, index) {
-                            return <li key = {index}>{task}</li>;
+                        function (task) {
+                            return <li key = {task["id"]}>{task["content"]}</li>;
                         }
                     )
                 }
