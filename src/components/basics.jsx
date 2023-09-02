@@ -23,7 +23,7 @@ function Basics() {
 
     if (formDisplayed) {
         return (
-            <section className = "basics">
+            <section className = "basicsForm">
                 <label htmlFor = "name">Name: </label>
                 <input
                     placeholder = "name"
@@ -61,7 +61,7 @@ function Basics() {
     } 
     else {
         return (
-            <section className = "basics">
+            <section className = "basicsListed">
                 <p>Name: {basicInfo.name}</p>
                 <p>Phone: {basicInfo.phone}</p>
                 <p>Email: {basicInfo.email}</p>

@@ -105,7 +105,7 @@ function WorkExItem() {
 
     if (displayState === 0) {
         return (
-            <section className = "workItem">
+            <section className = "workItemForm">
                 <label htmlFor = "company">Company: </label>
                 <input
                     placeholder = "Name of Company"
@@ -161,7 +161,7 @@ function WorkExItem() {
     } 
     if (displayState === 1) {
         return (
-            <section className = "workSection">
+            <section className = "workItemListed">
                 <p>Company: {workInfo.company}</p>
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>
@@ -176,7 +176,7 @@ function WorkExItem() {
     }
     if (displayState === 2) {
         return (
-            <section className = "workSection">
+            <section className = "workItemListed">
                 <p>Company: {workInfo.company}</p>
                 <p>Position: {workInfo.position}</p>
                 <p>Start Date: {workInfo.start}</p>

@@ -20,7 +20,7 @@ function EducationItem() {
 
     if (formDisplayed) {
         return (
-            <section className = "educationItem">
+            <section className = "educationItemForm">
                 <label htmlFor = "school">School: </label>
                 <input
                     placeholder = "Name of School"
@@ -60,7 +60,7 @@ function EducationItem() {
     }
     else {
         return (
-            <section className = "basics">
+            <section className = "educationItemListed">
                 <p>School: {educationInfo.school}</p>
                 <p>Title: {educationInfo.title}</p>
                 <p>Year of Graduation: {educationInfo.year}</p>
