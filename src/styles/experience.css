@@ -12,3 +12,32 @@
 .experienceSection > button {
     justify-self: center;
 }
+
+.workItemForm {
+    display : grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px
+}
+
+.workItemForm > label {
+    justify-self: end;
+}
+
+.workItemForm > button {
+    grid-column: 2;
+    justify-self: center;
+}
+
+.responsibilities {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.responsibilities > div {
+    align-self: center;
+}
+
+.responsibilities > ul {
+    grid-column: 2;
+}
