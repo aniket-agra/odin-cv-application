@@ -5,7 +5,7 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 0) {
         return (
             <div className = "responsibilities">
-                <h3>Responsibilities</h3>
+                <div>Responsibilities</div>
                 <ul>
                 {
                     workInfo.responsibilities.map(
@@ -32,7 +32,7 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 1) {
         return (
             <div className = "responsibilities">
-                <h3>Responsibilities</h3>
+                <div>Responsibilities</div>
                 <ul>
                 {
                     workInfo.responsibilities.map(
@@ -56,7 +56,7 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 2) {
         return (
             <div className = "responsibilities">
-                <h3>Responsibilities</h3>
+                <div>Responsibilities</div>
                 <ul>
                     {
                         workInfo.responsibilities.map(
