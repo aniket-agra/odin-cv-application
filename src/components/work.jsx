@@ -4,7 +4,7 @@ import "../styles/experience.css"
 function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 0) {
         return (
-            <>
+            <div className = "responsibilities">
                 <h3>Responsibilities</h3>
                 <ul>
                 {
@@ -26,12 +26,12 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                     )
                 }
                 </ul>
-            </>
+            </div>
         );
     }
     if (displayState === 1) {
         return (
-            <>
+            <div className = "responsibilities">
                 <h3>Responsibilities</h3>
                 <ul>
                 {
@@ -50,12 +50,12 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                 }}>
                 Add responsibility
                 </button>
-            </>
+            </div>
         );
     }
     if (displayState === 2) {
         return (
-            <>
+            <div className = "responsibilities">
                 <h3>Responsibilities</h3>
                 <ul>
                     {
@@ -79,7 +79,7 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                             }} />
                     </li>
                 </ul>
-            </>
+            </div>
         );
     }
 }
@@ -163,10 +163,10 @@ function WorkExItem() {
     if (displayState === 1) {
         return (
             <section className = "workItemListed">
-                <p>Company: {workInfo.company}</p>
-                <p>Position: {workInfo.position}</p>
-                <p>Start Date: {workInfo.start}</p>
-                <p>End Date: {workInfo.end}</p>
+                <div className = "company">Company: {workInfo.company}</div>
+                <div className = "position">Position: {workInfo.position}</div>
+                <div className = "start">Start Date: {workInfo.start}</div>
+                <div className = "end">End Date: {workInfo.end}</div>
                 <Tasks
                     workInfo={workInfo}
                     displayState={displayState}
@@ -178,10 +178,10 @@ function WorkExItem() {
     if (displayState === 2) {
         return (
             <section className = "workItemListed">
-                <p>Company: {workInfo.company}</p>
-                <p>Position: {workInfo.position}</p>
-                <p>Start Date: {workInfo.start}</p>
-                <p>End Date: {workInfo.end}</p>
+                <div className = "company">Company: {workInfo.company}</div>
+                <div className = "position">Position: {workInfo.position}</div>
+                <div className = "start">Start Date: {workInfo.start}</div>
+                <div className = "end">End Date: {workInfo.end}</div>
                 <Tasks
                     workInfo={workInfo}
                     displayState={displayState}

@@ -62,9 +62,9 @@ function Basics() {
     else {
         return (
             <section className = "basicsListed">
-                <p>Name: {basicInfo.name}</p>
-                <p>Phone: {basicInfo.phone}</p>
-                <p>Email: {basicInfo.email}</p>
+                <div className = "name">Name: {basicInfo.name}</div>
+                <div className = "phone">Phone: {basicInfo.phone}</div>
+                <div className = "email">Email: {basicInfo.email}</div>
                 <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
             </section>
         );
