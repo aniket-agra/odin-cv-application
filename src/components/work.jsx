@@ -207,7 +207,7 @@ function WorkExSection() {
 
     return (
         <section className = "experienceSection">
-            <h2>Work Experience</h2>
+            <div>Work Experience</div>
             {
                 workItems
             }

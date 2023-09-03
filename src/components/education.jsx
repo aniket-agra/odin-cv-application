@@ -80,7 +80,7 @@ function EducationSection() {
 
     return (
         <section className = "educationSection">
-            <h2>Education</h2>
+            <div>Education</div>
             {
                 educationItems
             }
