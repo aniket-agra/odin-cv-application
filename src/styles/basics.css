@@ -16,4 +16,24 @@
 
 .basicsListed {
     margin-bottom: 2rem;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.basicsListed > .name {
+    grid-column: 1 / 3;
+    font-size: 2.5rem;
+    font-weight: 900;
+    justify-self: center;
+}
+
+.basicsListed > .phone, .basicsListed > .email {
+    font-size: 1.5rem;
+    justify-self: center;
+}
+
+.basicsListed > button {
+    grid-column: 1 / 3;
+    justify-self: center;
 }
