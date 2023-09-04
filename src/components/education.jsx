@@ -62,9 +62,9 @@ function EducationItem() {
     else {
         return (
             <section className = "educationItemListed">
-                <div className = "school">School: {educationInfo.school}</div>
-                <div className = "degree">Title: {educationInfo.title}</div>
-                <div className = "gradYear">Year of Graduation: {educationInfo.year}</div>
+                <div className = "school">{educationInfo.school}</div>
+                <div className = "degree">{educationInfo.title}</div>
+                <div className = "gradYear">{educationInfo.year}</div>
                 <button onClick = {handleClick}>{formDisplayed ? "Submit" : "Edit"}</button>
             </section>
         );
