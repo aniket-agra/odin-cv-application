@@ -42,13 +42,13 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                     )
                 }
                 </ul>
-                <button onClick = {e => handleClick2(e, 0)}>Edit</button>
+                <button onClick = {e => handleClick2(e, 0)}>Edit Details</button>
                 <button onClick = {e => {
                     let newObj = {...workInfo};
                     newObj["responsibilities"].push({id : crypto.randomUUID(), content : ""});
                     return handleClick2(e, 2);
                 }}>
-                Add responsibility
+                Add Responsibility
                 </button>
             </>
         );
