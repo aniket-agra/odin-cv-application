@@ -28,16 +28,15 @@
     justify-self: center;
 }
 
-.responsibilities {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: subgrid;
+.workItemForm > div {
+    grid-column: 1 / 2;
+    justify-self: end;
 }
 
-.responsibilities > div {
-    align-self: center;
-}
-
-.responsibilities > ul {
-    grid-column: 2;
+.workItemForm > ul {
+    grid-column: 2 / 3;
+    justify-self: start;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }

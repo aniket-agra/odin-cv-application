@@ -4,8 +4,8 @@ import "../styles/experience.css"
 function Tasks({workInfo, displayState, handleChange, handleClick2}) {
     if (displayState === 0) {
         return (
-            <div className = "responsibilities">
-                <div>Responsibilities</div>
+            <>
+                <div>Responsibilities: </div>
                 <ul>
                 {
                     workInfo.responsibilities.map(
@@ -26,13 +26,13 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                     )
                 }
                 </ul>
-            </div>
+            </>
         );
     }
     if (displayState === 1) {
         return (
-            <div className = "responsibilities">
-                <div>Responsibilities</div>
+            <>
+                <div>Responsibilities: </div>
                 <ul>
                 {
                     workInfo.responsibilities.map(
@@ -50,13 +50,13 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                 }}>
                 Add responsibility
                 </button>
-            </div>
+            </>
         );
     }
     if (displayState === 2) {
         return (
-            <div className = "responsibilities">
-                <div>Responsibilities</div>
+            <>
+                <div>Responsibilities: </div>
                 <ul>
                     {
                         workInfo.responsibilities.map(
@@ -79,7 +79,7 @@ function Tasks({workInfo, displayState, handleChange, handleClick2}) {
                             }} />
                     </li>
                 </ul>
-            </div>
+            </>
         );
     }
 }
